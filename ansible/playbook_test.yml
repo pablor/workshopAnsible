@@ -7,3 +7,8 @@
   tasks:
     - name: Use template
       template: src=templates/index.html dest=/home/vagrant/index_new.html
+      notify: restart apache
+  handlers:
+    - name: restart apache
+      service: name=httpd state=restarted
+
