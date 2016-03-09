@@ -1,0 +1,7 @@
+---
+- name: My first playbook :)
+  hosts: web-test
+  sudo: true
+  tasks:
+    - name: Install Apache
+      yum: pkg=httpd state=present
