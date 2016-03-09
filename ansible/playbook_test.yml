@@ -3,11 +3,7 @@
   hosts: web-test
   sudo: true
   vars:
-    common_packages:
-        - vim
-        - telnet
-        - gcc
+    name_to_say_hello: Pablo
   tasks:
-    - name: Install multiple packages
-      yum: name={{item}} state=installed
-      with_items: common_packages
+    - name: Use template
+      template: src=templates/index.html dest=/home/vagrant/index_new.html
