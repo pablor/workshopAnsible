@@ -4,9 +4,5 @@
   sudo: true
   vars:
     name_to_say_hello: Pablo
-  tasks:
-    - include: tasks/writeFile.yml
-  handlers:
-    - name: restart apache
-      service: name=httpd state=restarted
-
+  roles:
+    - writeFile
