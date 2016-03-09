@@ -8,3 +8,19 @@
   tasks:
     - name: Install Apache
       yum: pkg={{ webserver }} state={{ state }}
+      when: ansible_os_family == "RedHat"
+
+    - name: Check if PHP is installed
+      register: php_installed
+      command: php -v
+      ignore_errors: true
+
+    - name: Do something if PHP is installed
+      debug: var=php_installed
+      when: php_installed|success
+
+    - name: Do something if PHP is NOT installed
+      debug: msg='PHP is NOT installed'
+      when: php_installed|failed
+
+
