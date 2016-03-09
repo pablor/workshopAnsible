@@ -2,6 +2,9 @@
 - name: My first playbook :)
   hosts: web-test
   sudo: true
+  vars:
+    webserver: httpd
+    state: present
   tasks:
     - name: Install Apache
-      yum: pkg=httpd state=present
+      yum: pkg={{ webserver }} state={{ state }}
