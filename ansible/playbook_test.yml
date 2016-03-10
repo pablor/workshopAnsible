@@ -5,4 +5,4 @@
   vars:
     name_to_say_hello: Pablo
   roles:
-    - writeFile
+    - { role: geerlingguy.git }
