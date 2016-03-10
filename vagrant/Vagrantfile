@@ -16,5 +16,8 @@ Vagrant.configure("2") do |config|
       web.vm.network :forwarded_port, guest: 443, host: 8081, auto_correct: true
 
       web.vm.hostname = "workshopVm"
+
+      config.vm.synced_folder "../ansible", "/ansible"
+      web.vm.provision :shell, path: "shell/web_provision_ansible.sh", args: ["workshopVm"]
     end
 end
