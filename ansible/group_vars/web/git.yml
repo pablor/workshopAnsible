@@ -1,0 +1,4 @@
+git_install_from_source: true
+git_install_from_source_force_update: true
+git_version: "2.6.4"
+git_install_path: "/usr"
